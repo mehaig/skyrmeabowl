@@ -3,70 +3,63 @@ $(document).ready(function () {
   const fruits = [
     {
       name: "Banana",
-      image: "https://cdn-prod.medicalnewstoday.com/content/images/articles/271/271157/bananas-chopped-up-in-a-bowl.jpg",
-      calories: 1,
-      fat: 0,
-      protein: 0.01,
-      sugar: 0.12,
+      image: "https://tontalla.sirv.com/fruits/pexels-apasaric-2872755.jpg",
     },
     {
       name: "Strawberry",
-      image: "https://c02.purpledshub.com/uploads/sites/41/2023/09/GettyImages_154514873.jpg?w=1029&webp=1",
-      calories: 6,
-      fat: 0.05,
-      protein: 0.12,
-      sugar: 0.84,
+      image: "https://tontalla.sirv.com/fruits/pexels-pixabay-70746.jpg",
     },
     {
       name: "Blueberry",
-      image: "https://www.acquagarden.co.uk/cdn/shop/products/fruit-plants-blueberry-sunshine-blue-1-x-full-plant-in-a-2-litre-pot-975576.jpg?v=1647889418",
-      calories: 1,
-      fat: 0,
-      protein: 0.01,
-      sugar: 0.01,
+      image: "https://tontalla.sirv.com/fruits/pexels-veeterzy-70862.jpg",
     },
     {
       name: "Apple",
-      image: "https://www.collinsdictionary.com/images/full/apple_158989157.jpg",
-      calories: 1,
-      fat: 0,
-      protein: 0,
-      sugar: 0.1,
+      image: "https://tontalla.sirv.com/fruits/pexels-mali-102104.jpg",
     },
     {
       name: "Kiwi",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwQjAfVMSv0rvTIJl97anIxiSC29qJZKjXSg&s",
-      calories: 1,
-      fat: 0.01,
-      protein: 0.01,
-      sugar: 0.09,
+      image: "https://tontalla.sirv.com/fruits/pexels-helioz-54370.jpg",
+    },
+    {
+      name: "Pineapple",
+      image: "https://tontalla.sirv.com/fruits/pexels-psco-137119.jpg",
+    },
+    {
+      name: "Mango",
+      image:
+        "https://tontalla.sirv.com/fruits/pexels-roman-odintsov-4955253.jpg",
+    },
+    {
+      name: "Grapes",
+      image: "https://tontalla.sirv.com/fruits/pexels-qjpioneer-708777.jpg",
+    },
+    {
+      name: "Orange",
+      image: "https://tontalla.sirv.com/fruits/pexels-pixabay-161559.jpg",
+    },
+    {
+      name: "Watermelon",
+      image:
+        "https://tontalla.sirv.com/fruits/pexels-fotios-photos-1398655.jpg",
     },
   ];
 
   const otherToppings = [
     {
       name: "Honey",
-      image: "https://i0.wp.com/post.healthline.com/wp-content/uploads/2021/04/honey-1296x728-header.jpg?w=1155&h=1528",
-      calories: 3,
-      fat: 0,
-      protein: 0,
-      sugar: 0.82,
+      image:
+        "https://i0.wp.com/post.healthline.com/wp-content/uploads/2021/04/honey-1296x728-header.jpg?w=1155&h=1528",
     },
     {
       name: "Dark Chocolate",
-      image: "https://www.embassychocolate.com/hs-fs/hubfs/What%20Is%20Dark%20Chocolate.jpg?width=521&name=What%20Is%20Dark%20Chocolate.jpg",
-      calories: 5.05,
-      fat: 0.34,
-      protein: 0.04,
-      sugar: 0.51,
+      image:
+        "https://www.embassychocolate.com/hs-fs/hubfs/What%20Is%20Dark%20Chocolate.jpg?width=521&name=What%20Is%20Dark%20Chocolate.jpg",
     },
     {
       name: "Protein Powder",
-      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-hzwPPXe2QY4f301q-owKgNqAlzr2IloyCQ&s",
-      calories: 4.0,
-      fat: 0.09,
-      protein: 0.31,
-      sugar: 0.1,
+      image:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-hzwPPXe2QY4f301q-owKgNqAlzr2IloyCQ&s",
     },
   ];
 
@@ -78,74 +71,68 @@ $(document).ready(function () {
 
   // Function to generate a random skyr bowl
   function generateSkyrBowl() {
-    const randomFruit = fruits[Math.floor(Math.random() * fruits.length)];
-    const randomOtherTopping =
-      otherToppings[Math.floor(Math.random() * otherToppings.length)];
+    const numFruits = parseInt($("#fruitSlider").val());
+    const numToppings = parseInt($("#toppingSlider").val());
+
+    const selectedFruits = [];
+    const selectedToppings = [];
+
+    while (selectedFruits.length < numFruits) {
+      const randomFruit = fruits[Math.floor(Math.random() * fruits.length)];
+      if (!selectedFruits.includes(randomFruit)) {
+        selectedFruits.push(randomFruit);
+      }
+    }
+
+    while (selectedToppings.length < numToppings) {
+      const randomOtherTopping =
+        otherToppings[Math.floor(Math.random() * otherToppings.length)];
+      if (!selectedToppings.includes(randomOtherTopping)) {
+        selectedToppings.push(randomOtherTopping);
+      }
+    }
+
     const randomBowlSize =
       bowlSizes[Math.floor(Math.random() * bowlSizes.length)];
 
-    const fruitAmountInSize = randomBowlSize.grams;
-    const fruitCalories = (randomFruit.calories * fruitAmountInSize).toFixed(2);
-    const fruitFat = (randomFruit.fat * fruitAmountInSize).toFixed(2);
-    const fruitProtein = (randomFruit.protein * fruitAmountInSize).toFixed(2);
-    const fruitSugar = (randomFruit.sugar * fruitAmountInSize).toFixed(2);
+    let result = "";
 
-    const otherToppingAmount = randomBowlSize.grams;
-    const otherToppingCalories = (
-      randomOtherTopping.calories * otherToppingAmount
-    ).toFixed(2);
-    const otherToppingFat = (
-      randomOtherTopping.fat * otherToppingAmount
-    ).toFixed(2);
-    const otherToppingProtein = (
-      randomOtherTopping.protein * otherToppingAmount
-    ).toFixed(2);
-    const otherToppingSugar = (
-      randomOtherTopping.sugar * otherToppingAmount
-    ).toFixed(2);
+    selectedFruits.forEach((fruit) => {
+      result += `
+          <div class="card col col-12 col-md-6 col-xl-1 p-2 mb-3 d-flex flex-row align-items-center" style="width: 18rem;">
+            <img loading="lazy" src="${fruit.image}" width="50" height="50" class="rounded-circle me-3 ms-2" alt="${fruit.name}">
+            <div class="card-body p-0">
+              <p class="m-0"><b>Fruit:</b> ${fruit.name} - ${randomBowlSize.grams}g</p>
+            </div>
+          </div>`;
+    });
 
-    let result = `
-        
-        <div class="card me-3" style="width: 18rem;">
-        <img src="${randomFruit.image}" width="150" height="200" class="card-img-top" alt="${randomFruit.name}">
-            <div class="card-body">
-            <p><b>Fruit Topping:</b> ${randomFruit.name} - ${fruitAmountInSize}g</p>
+    selectedToppings.forEach((topping) => {
+      result += `
+          <div class="card col col-12 col-md-6 col-xl-1 p-2 mb-3 d-flex flex-row align-items-center" style="width: 18rem;">
+            <img loading="lazy" src="${topping.image}" width="50" height="50" class="rounded-circle me-3 ms-2" alt="${topping.name}">
+            <div class="card-body p-0">
+              <p class="m-0"><b>Topping:</b> ${topping.name} - ${randomBowlSize.grams}g</p>
             </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-        <img src="${randomOtherTopping.image}" width="150" height="200" class="card-img-top" alt="${randomOtherTopping.name}">
-            <div class="card-body">
-            <p><b>Other Topping:</b> ${randomOtherTopping.name} - ${otherToppingAmount}g</p>
-            </div>
-        </div>
-        `;
+          </div>`;
+    });
 
     $("#result").html(result);
-    $(".skyr-bowl-size").html(`<h5 class="card-title mt-2 fw-bold">${randomBowlSize.skyr}g of Skyr</h5>`);
-    let nutritionTable = `
-            <tr>
-                <td>${randomFruit.name}</td>
-                <td>${fruitAmountInSize}</td>
-                <td>${fruitCalories}</td>
-                <td>${fruitFat}</td>
-                <td>${fruitProtein}</td>
-                <td>${fruitSugar}</td>
-            </tr>
-            <tr>
-                <td>${randomOtherTopping.name}</td>
-                <td>${otherToppingAmount}</td>
-                <td>${otherToppingCalories}</td>
-                <td>${otherToppingFat}</td>
-                <td>${otherToppingProtein}</td>
-                <td>${otherToppingSugar}</td>
-            </tr>
-        `;
-
-    $("#nutritionTableBody").html(nutritionTable);
+    $(".skyr-bowl-size").html(
+      `<h5 class="card-title mt-2 fw-bold">${randomBowlSize.skyr}g of Skyr</h5>`
+    );
   }
 
-  // Event listener for the generate button
+  // Event listeners for the generate button and sliders
   $("#generateButton").click(function () {
     generateSkyrBowl();
+  });
+
+  $("#fruitSlider").on("input", function () {
+    $("#fruitCount").text($(this).val());
+  });
+
+  $("#toppingSlider").on("input", function () {
+    $("#toppingCount").text($(this).val());
   });
 });
