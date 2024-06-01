@@ -3,7 +3,7 @@ $(document).ready(function () {
   const fruits = [
     {
       name: "Banana",
-      image: "https://via.placeholder.com/100?text=Banana",
+      image: "https://cdn-prod.medicalnewstoday.com/content/images/articles/271/271157/bananas-chopped-up-in-a-bowl.jpg",
       calories: 1,
       fat: 0,
       protein: 0.01,
@@ -54,7 +54,7 @@ $(document).ready(function () {
     },
     {
       name: "Dark Chocolate",
-      image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.scripps.org%2Fnews_items%2F5317-is-dark-chocolate-healthy&psig=AOvVaw0ZF4MWk-1wX6Js3fKq2jRz&ust=1717343760561000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKiiydziuoYDFQAAAAAdAAAAABAE",
+      image: "https://www.embassychocolate.com/hs-fs/hubfs/What%20Is%20Dark%20Chocolate.jpg?width=521&name=What%20Is%20Dark%20Chocolate.jpg",
       calories: 5.05,
       fat: 0.34,
       protein: 0.04,
@@ -107,13 +107,13 @@ $(document).ready(function () {
     let result = `
         
         <div class="card me-3" style="width: 18rem;">
-        <img src="${randomFruit.image}" class="card-img-top" alt="${randomFruit.name}">
+        <img src="${randomFruit.image}" width="150" height="200" class="card-img-top" alt="${randomFruit.name}">
             <div class="card-body">
             <p><b>Fruit Topping:</b> ${randomFruit.name} - ${fruitAmountInSize}g</p>
             </div>
         </div>
         <div class="card" style="width: 18rem;">
-        <img src="${randomOtherTopping.image}" class="card-img-top" alt="${randomOtherTopping.name}">
+        <img src="${randomOtherTopping.image}" width="150" height="200" class="card-img-top" alt="${randomOtherTopping.name}">
             <div class="card-body">
             <p><b>Other Topping:</b> ${randomOtherTopping.name} - ${otherToppingAmount}g</p>
             </div>
