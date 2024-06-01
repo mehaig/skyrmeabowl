@@ -54,7 +54,7 @@ $(document).ready(function () {
     },
     {
       name: "Dark Chocolate",
-      image: "https://via.placeholder.com/100?text=Dark+Chocolate",
+      image: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.scripps.org%2Fnews_items%2F5317-is-dark-chocolate-healthy&psig=AOvVaw0ZF4MWk-1wX6Js3fKq2jRz&ust=1717343760561000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKiiydziuoYDFQAAAAAdAAAAABAE",
       calories: 5.05,
       fat: 0.34,
       protein: 0.04,
@@ -62,7 +62,7 @@ $(document).ready(function () {
     },
     {
       name: "Protein Powder",
-      image: "https://via.placeholder.com/100?text=Protein+Powder",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-hzwPPXe2QY4f301q-owKgNqAlzr2IloyCQ&s",
       calories: 4.0,
       fat: 0.09,
       protein: 0.31,
