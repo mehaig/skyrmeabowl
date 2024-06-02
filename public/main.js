@@ -99,8 +99,8 @@ $(document).ready(function () {
 
     selectedFruits.forEach((fruit) => {
       result += `
-          <div class="card col col-12 col-md-6 col-xl-1 p-2 mb-3 d-flex flex-row align-items-center" style="width: 18rem;">
-            <img loading="lazy" src="${fruit.image}" width="50" height="50" class="rounded-circle me-3 ms-2" alt="${fruit.name}">
+          <div class="card shadow-sm col col-12 col-md-6 col-xl-1 p-2 mb-3 d-flex flex-row align-items-center me-0 me-md-3" style="width: 18rem;">
+            <img loading="lazy" src="${fruit.image}" width="90" height="75" class="rounded me-3 ms-2" alt="${fruit.name}">
             <div class="card-body p-0">
               <p class="m-0"><b>Fruit:</b> ${fruit.name} - ${randomBowlSize.grams}g</p>
             </div>
@@ -109,8 +109,8 @@ $(document).ready(function () {
 
     selectedToppings.forEach((topping) => {
       result += `
-          <div class="card col col-12 col-md-6 col-xl-1 p-2 mb-3 d-flex flex-row align-items-center" style="width: 18rem;">
-            <img loading="lazy" src="${topping.image}" width="50" height="50" class="rounded-circle me-3 ms-2" alt="${topping.name}">
+          <div class="card shadow-sm col col-12 col-md-6 col-xl-1 p-2 mb-3 d-flex flex-row align-items-center" style="width: 18rem;">
+            <img loading="lazy" src="${topping.image}" width="90" height="75" class="rounded me-3 ms-2" alt="${topping.name}">
             <div class="card-body p-0">
               <p class="m-0"><b>Topping:</b> ${topping.name} - ${randomBowlSize.grams}g</p>
             </div>
@@ -119,7 +119,7 @@ $(document).ready(function () {
 
     $("#result").html(result);
     $(".skyr-bowl-size").html(
-      `<h5 class="card-title mt-2 fw-bold">${randomBowlSize.skyr}g of Skyr</h5>`
+      `<h5 class="card-title border w-50 w-md-25 mx-auto rounded p-2 mt-2 fw-bold shadow-sm">${randomBowlSize.skyr}g of Skyr</h5>`
     );
   }
 
